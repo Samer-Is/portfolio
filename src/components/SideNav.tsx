@@ -49,7 +49,7 @@ export function SideNav() {
   };
 
   return (
-    <nav className="fixed left-6 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-2">
+    <nav className="fixed left-4 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-2">
       {sections.map((section) => (
         <button
           key={section.id}
