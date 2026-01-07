@@ -9,12 +9,14 @@ import { SkillGroups } from "@/components/SkillGroups";
 import { EducationSection } from "@/components/EducationSection";
 import { CollaborationSection } from "@/components/CollaborationSection";
 import { Footer } from "@/components/Footer";
+import { SideNav } from "@/components/SideNav";
 import { resumeData } from "@/content/resume";
 
 export default function Home() {
   return (
     <>
       <Navbar />
+      <SideNav />
       <main>
         {/* Hero Section */}
         <Hero />
