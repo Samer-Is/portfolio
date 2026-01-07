@@ -1,36 +1,154 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Samer H. Ismail - Portfolio Website
+
+A modern, professional portfolio website built with Next.js, TypeScript, Tailwind CSS, shadcn/ui, and Framer Motion.
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Theming**: next-themes (light/dark mode)
+
+## Features
+
+- 📱 Fully responsive design
+- 🌓 Light and dark mode support
+- ⚡ Fast and performant
+- ♿ Accessible (keyboard navigation, proper heading structure, ARIA labels)
+- 🔍 SEO optimized with metadata, Open Graph tags, and sitemap
+- 🖨️ Print-friendly resume page at `/resume`
+- 🎨 Clean, modern design with subtle animations
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── globals.css          # Global styles and CSS variables
+│   ├── layout.tsx           # Root layout with metadata
+│   ├── page.tsx             # Main portfolio page
+│   ├── sitemap.ts           # Dynamic sitemap
+│   ├── robots.ts            # Robots.txt configuration
+│   ├── opengraph-image.tsx  # Dynamic OG image generation
+│   └── resume/
+│       └── page.tsx         # Print-friendly resume
+├── components/
+│   ├── ui/                  # shadcn/ui components
+│   ├── Container.tsx        # Content container
+│   ├── Section.tsx          # Section wrapper with animations
+│   ├── Navbar.tsx           # Navigation bar
+│   ├── Hero.tsx             # Hero section
+│   ├── ExperienceTimeline.tsx
+│   ├── ProjectGrid.tsx
+│   ├── SkillGroups.tsx
+│   ├── EducationSection.tsx
+│   ├── CollaborationSection.tsx
+│   ├── IndependentWorkSection.tsx
+│   ├── Footer.tsx
+│   └── ThemeProvider.tsx
+├── content/
+│   └── resume.ts            # All portfolio content
+└── lib/
+    └── utils.ts             # Utility functions
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Build for Production
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Start Production Server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment to Vercel
 
-## Learn More
+1. Push your code to a GitHub repository.
 
-To learn more about Next.js, take a look at the following resources:
+2. Go to [Vercel](https://vercel.com) and sign in with GitHub.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Click "New Project" and import your repository.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Vercel will auto-detect Next.js and configure the build settings.
 
-## Deploy on Vercel
+5. Click "Deploy" and wait for the deployment to complete.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6. Your site will be live at `your-project-name.vercel.app`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Custom Domain
+
+1. Go to your project settings in Vercel.
+2. Navigate to "Domains".
+3. Add your custom domain and follow the DNS configuration instructions.
+
+## Customization
+
+### Content
+
+All content is centralized in `src/content/resume.ts`. Edit this file to update:
+- Personal information
+- Experience
+- Selected work/projects
+- Skills
+- Education
+- Certifications
+- Collaboration opportunities
+- Independent work
+
+### Styling
+
+- Colors and theming are defined in `src/app/globals.css`
+- Component-specific styling uses Tailwind CSS classes
+- Modify the shadcn/ui components in `src/components/ui/`
+
+### Adding New Sections
+
+1. Create a new component in `src/components/`
+2. Add the data type to `src/content/resume.ts`
+3. Import and use in `src/app/page.tsx`
+
+## Important Files
+
+- **CV PDF**: Place your actual CV at `public/Samer-Ismail-CV.pdf`
+- **Favicon**: Replace `public/favicon.ico` with your favicon
+- **OG Image**: The OG image is dynamically generated, or you can add a static `public/og-image.png`
+
+## Performance
+
+The site is optimized for performance:
+- No heavy libraries
+- next/image for optimized images
+- Font optimization with next/font
+- Minimal client-side JavaScript
+- Lighthouse-friendly
+
+## License
+
+MIT License

@@ -1,65 +1,103 @@
-import Image from "next/image";
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { Section } from "@/components/Section";
+import { Container } from "@/components/Container";
+import { CoreStrengths } from "@/components/CoreStrengths";
+import { ExperienceTimeline } from "@/components/ExperienceTimeline";
+import { ProjectGrid } from "@/components/ProjectGrid";
+import { SkillGroups } from "@/components/SkillGroups";
+import { EducationSection } from "@/components/EducationSection";
+import { CollaborationSection } from "@/components/CollaborationSection";
+import { Footer } from "@/components/Footer";
+import { resumeData } from "@/content/resume";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <>
+      <Navbar />
+      <main>
+        {/* Hero Section */}
+        <Hero />
+
+        <Container>
+          {/* About Section */}
+          <Section id="about" title="About">
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+              {resumeData.summary}
+            </p>
+          </Section>
+
+          {/* Core Strengths Section */}
+          <Section id="core-strengths" title="Core strengths">
+            <CoreStrengths strengths={resumeData.coreStrengths} />
+          </Section>
+
+          {/* Skills Section */}
+          <Section id="skills" title="Skills">
+            <SkillGroups skillGroups={resumeData.skillGroups} />
+          </Section>
+
+          {/* Deployed Projects Section */}
+          <Section id="projects" title="Deployed, up & running projects">
+            <ProjectGrid projects={resumeData.projects} />
+          </Section>
+
+          {/* Education & Certifications Section */}
+          <Section id="education" title="Education & Certifications">
+            <EducationSection
+              education={resumeData.education}
+              certifications={resumeData.certifications}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          </Section>
+
+          {/* Experience Section */}
+          <Section id="experience" title="Experience">
+            <ExperienceTimeline experiences={resumeData.experience} />
+          </Section>
+
+          {/* Collaboration Section */}
+          <Section id="collaboration" title="Collaboration and Opportunities">
+            <CollaborationSection />
+          </Section>
+
+          {/* Contact Section */}
+          <Section id="contact" title="Get in Touch">
+            <div className="max-w-xl">
+              <p className="text-muted-foreground mb-6">
+                Interested in working together or discussing AI strategy? Feel
+                free to reach out through any of the channels below.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href={`mailto:${resumeData.email}`}
+                  className="text-primary hover:underline"
+                >
+                  {resumeData.email}
+                </a>
+                <span className="text-muted-foreground">•</span>
+                <a
+                  href={resumeData.links.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  LinkedIn
+                </a>
+                <span className="text-muted-foreground">•</span>
+                <a
+                  href={resumeData.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </Section>
+        </Container>
       </main>
-    </div>
+      <Footer />
+    </>
   );
 }
