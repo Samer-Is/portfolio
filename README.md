@@ -1,6 +1,6 @@
-# Samer H. Ismail - Portfolio Website
+# MY Portfolio Website
 
-A modern, professional portfolio website built with Next.js, TypeScript, Tailwind CSS, shadcn/ui, and Framer Motion.
+
 
 ## Tech Stack
 
